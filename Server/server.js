@@ -6,7 +6,7 @@ const app = express();
 
 app.use(express.json());
 // Serve the client-side code from the 'build' folder
-app.use(express.static(path.join(__dirname, "../client/build")));
+app.use(express.static(path.join(__dirname, "../Client/build")));
 
 const uri =
   "mongodb+srv://bughubber:omerdima123@cluster0.nzfvlqf.mongodb.net/bughub?retryWrites=true&w=majority";
@@ -127,7 +127,7 @@ app.put("/api/getAllBugs/:id", async (req, res) => {
 
 // // Serve the client-side code for all other requests
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/build", "index.html"));
+  res.sendFile(path.join(__dirname, "../Client/build", "index.html"));
 });
 
 app.listen(port, () => {
