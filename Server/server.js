@@ -22,7 +22,6 @@ mongoose
   .catch((error) => {
     console.log("Error connecting to MongoDB:", error.message);
   });
-
 // Define a schema for user data
 const userSchema = new mongoose.Schema({
   user_id: Number,
