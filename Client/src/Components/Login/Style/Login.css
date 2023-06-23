@@ -1,0 +1,41 @@
+.login-container {
+    margin: 0 auto;
+    width: 300px;
+    margin-top: 100px;
+}
+
+.login-box {
+    height: fit-content;
+    padding: 20px;
+    outline: 3px solid #2a2a2a;
+    border-radius: 5px;
+  }
+
+.login-box > input {
+    margin-bottom: 10px;
+    width: stretch;
+}
+
+.button-container > button {
+    margin: 0;
+    width: 100%;
+}
+
+.button-container {
+    display: flex;
+    gap: 10px;
+}
+
+.validation-rules-box {
+    outline: 3px solid #2a2a2a;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #2a2a2a;
+    color: rgb(139, 139, 139);
+    font-size: 12px;
+}
+
+.validation-rules-box > h3 {
+    font-weight: 400;
+}

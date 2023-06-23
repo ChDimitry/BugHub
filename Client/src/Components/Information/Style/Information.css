@@ -1,0 +1,124 @@
+.informationbar {
+  margin-top: 20px;
+  gap: 20px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+
+}
+
+.information-card {
+  width: stretch;
+  height: 60px;
+  padding: 10px;
+
+  background-color: #262626;
+  color: #fff;
+  display: flex;
+
+  align-items: center;
+  justify-content: left;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 5px;
+  text-transform: capitalize;
+
+  user-select: none;
+}
+
+.number-of-bugs-label {
+  margin-bottom: 10px;
+  font-size: 4em;
+  font-weight: 700;
+  margin-right: 10px;
+  background-color: #000000;
+  color: transparent;
+  text-shadow: 0px 2px 1px rgb(255, 255, 255);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+}
+
+
+
+.information-label {
+  color: rgb(139, 139, 139);
+  margin-left: 5px;
+  margin-top: -5px;
+}
+
+.calendar-information {
+  display: flex;
+  margin-top: 20px;
+}
+
+/* Calendar */
+.calendar {
+  margin-top: 20px;
+  display: flex;
+  overflow-x: scroll;
+  width: 100%;
+  
+  outline: 3px solid #2d2d2d;
+  border-radius: 5px;
+  height: 100px;
+}
+
+.month {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(139, 139, 139);
+  user-select: none;
+  width: stretch;
+}
+
+.bugs {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100px;
+  margin-bottom: -5px;
+}
+
+.bug {
+  width: 5px;
+  height: 5px;
+  background-color: #00ffaa;
+  margin: 2px;
+  border-radius: 10px;
+  box-shadow:0 0 20px #00ffaa;
+}
+
+.month-name {
+  margin-top: 10px;
+
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.bug-calender-extra-bugs-label {
+  position: absolute;
+  margin-left: 8px;
+  margin-top: -15px;
+  font-size: 10px;
+}
+
+.bug-calender-current-month-label {
+  color: white;
+}
+
+div::-webkit-scrollbar {
+  width: 1em;
+}
+
+div::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+div::-webkit-scrollbar-thumb {
+  background-color: #2a2a2a;
+  outline: none;
+  border-radius: 5px;
+}

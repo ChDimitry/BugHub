@@ -1,0 +1,110 @@
+body {
+  background-color: #1d1d1d;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
+    sans-serif;
+}
+
+body::-webkit-scrollbar {
+  width: 1em;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  outline: 1px solid #3b3b3b;
+  border-radius: 5px;
+}
+
+/* Define variables */
+/* background-color variable */
+:root {
+  --background-color: #1d1d1d;
+  width: 100%;
+}
+
+/* App.css */
+.App {
+  display: flex;
+  height: 100%;
+}
+
+.main-content {
+  margin: 0 auto;
+  width: 70%;
+  font-size: 14px;
+  font-weight: 100;
+  color: #fff;
+}
+
+button {
+  min-width: 100px;
+  color: #ffffffeb;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.2s ease all;
+  user-select: none;
+}
+
+/* Styles for mobile devices */
+@media (max-width: 768px) {
+  .main-content {
+    width: 100%; /* Stretch to full width on mobile devices */
+  }
+  button {
+    height: 50px;
+  }
+}
+
+input[type="search"],
+input[type="text"],
+input[type="password"],
+textarea {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
+    sans-serif;
+  border: none;
+  outline: none;
+  padding: 5px;
+  font-size: 13px;
+  font-weight: 100;
+  border-radius: 5px;
+  background-color: #444444;
+  color: #c6c6c6;
+  word-break: break-word;
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.424);
+  resize: none;
+  overflow: auto;
+}
+
+input[type="search"]:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+  outline: 1px solid #00ffaa;
+}
+
+.highlight-border-effect {
+  outline: 2px solid transparent;
+  animation: border-animation 1s 1;
+  outline-offset: -3px;
+  outline-width: 3px;
+  z-index: 9999;
+}
+
+@keyframes border-animation {
+  0% {
+    outline-color: #00ffaa;
+  }
+  25% {
+    outline-color: #00ffaa;
+  }
+  100% {
+    outline-color: transparent;
+  }
+}

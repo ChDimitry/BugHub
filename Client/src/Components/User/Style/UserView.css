@@ -1,0 +1,47 @@
+.user-panel {
+  margin-top: 20px;
+  display: flex;
+  width: 100%;
+  gap: 20px;
+}
+
+.user-information {
+  outline: 3px solid #2d2d2d;
+  width: 50%;
+  border-radius: 5px;
+}
+
+.project-container {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  overflow-x: scroll;
+  background-color: #2d2d2d;
+  outline: 3px solid #2d2d2d;
+  border-radius: 5px;
+}
+
+.project-container .project-card {
+  padding: 10px;
+  margin-right: 20px;
+
+  background-color: #262626;
+  color: #fff;
+  display: flex;
+  min-height: 100px;
+  align-items: center;
+  justify-content: left;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 5px;
+  text-transform: capitalize;
+
+  user-select: none;
+}
+
+.project-container::-webkit-scrollbar-corner {
+  background-color: transparent;
+
+}
