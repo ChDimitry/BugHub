@@ -12,8 +12,7 @@ function DataTable(props) {
   const [randomIndex, setRandomIndex] = useState(null);
 
   useEffect(() => {
-    setDatabaseBugList(props.database_bugList);
-    setRandomIndex(null);
+    setRandomIndex(0);
   }, [props.database_bugList]);
 
   useEffect(() => {
@@ -191,7 +190,7 @@ function DataTable(props) {
         >
           Random Bug
         </button>
-        {props.connectedUser.is_admin && (
+        {props.connectedUser.is_admin && !isMobile && (
           <button
             id="add-new-bug-button"
             className="table-menu-button"

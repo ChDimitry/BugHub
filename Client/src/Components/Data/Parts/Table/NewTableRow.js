@@ -64,10 +64,7 @@ function NewTableRow(props) {
 
     // Create a new bug object
     const newBug = {
-      bug_id:
-        bugListLength > 0
-          ? props.databaseBugList[props.databaseBugList.length - 1].bug_id + 1
-          : 0,
+      bug_id: getHighestBugId() + 1,
       project: project,
       severity: severity,
       urgent: urgent === "Yes" ? true : false,
@@ -89,15 +86,22 @@ function NewTableRow(props) {
     handleClick();
   }
 
+  // Get the highest bug id from the database
+  const getHighestBugId = () => {
+    let highestBugId = 0;
+    props.databaseBugList.forEach((bug) => {
+      if (bug.bug_id > highestBugId) {
+        highestBugId = bug.bug_id;
+      }
+    });
+    return highestBugId;
+  };
+
   return (
     <>
       <tr className={className} onClick={() => setIsOpen(!isOpen)}>
         <td id="new-bug-icon"></td>
-        <td>
-          {bugListLength > 0
-            ? props.databaseBugList[props.databaseBugList.length - 1].bug_id + 1
-            : 0}
-        </td>
+        <td>{getHighestBugId() + 1}</td>
         <td>
           {/* <input
             className={isOpen ? "new-bug-input-dark" : ""}
@@ -116,9 +120,10 @@ function NewTableRow(props) {
             placeholder="Project Name"
           >
             {props.connectedUser.projects_list.map((project) => (
-              <option value={project.project_name}>{project.project_name}</option>
+              <option value={project.project_name}>
+                {project.project_name}
+              </option>
             ))}
-
           </select>
         </td>
         <td>

@@ -5,12 +5,7 @@ import "./Style/DataView.css";
 
 function DataView(props) {
   // Filter bug list by user's projects on component mount
-  const [databaseBugList, setDatabaseBugList] = useState(
-    props.database_bugList.filter((bug) => {
-      return bug.project_id === props.projectId;
-    })
-  );
-
+  const [databaseBugList, setDatabaseBugList] = useState([]);
   useEffect(() => {
     setDatabaseBugList(
       props.database_bugList.filter((bug) => {
