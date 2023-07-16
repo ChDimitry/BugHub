@@ -1,17 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DropDown from "./Parts/Dropdown";
 import DataTable from "./Parts/Table/DataTable";
 import "./Style/DataView.css";
 
 function DataView(props) {
-  // Filter bug list by user's projects
+  // Filter bug list by user's projects on component mount
   const [databaseBugList, setDatabaseBugList] = useState(
-    props.database_bugList.filter((bug) =>
-      props.connectedUser.projects_list.some(
-        (project) => project.project_name === bug.project
-      )
-    )
+    props.database_bugList.filter((bug) => {
+      return bug.project_id === props.projectId;
+    })
   );
+
+  useEffect(() => {
+    setDatabaseBugList(
+      props.database_bugList.filter((bug) => {
+        return bug.project_id === props.projectId;
+      })
+    );
+  }, [props.database_bugList]);
 
   const [resetDropDown, setResetDropDown] = useState(false);
   const [searchValues, setSearchValues] = useState({
