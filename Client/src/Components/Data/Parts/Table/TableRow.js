@@ -154,6 +154,22 @@ function TableRow(props) {
     }
     setConfirmRemove(!confirmRemove);
   }
+  // Handle mobile view
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // Adjust the breakpoint to fit your mobile screen size
+    };
+    handleResize(); // Call the function on initial render
+    window.addEventListener("resize", handleResize); // Add event listener for window resize
+    return () => {
+      window.removeEventListener("resize", handleResize); // Clean up event listener on component unmount
+    };
+  }, []);
+
+  // Set the collumn span for mobile view
+  let collumnSpan = 9;
+  if (isMobile) { collumnSpan = 5; }
 
   return (
     <>
@@ -164,21 +180,25 @@ function TableRow(props) {
         key={props.data.bug_id}
         className={className}
       >
-        <td>
-          <img src={iconSource} alt="Bug Icon" className="table-icon" />
-        </td>
+        {!isMobile ? (
+          <td>
+            <img src={iconSource} alt="Bug Icon" className="table-icon" />
+          </td>
+        ) : (
+          ""
+        )}
         <td>{props.data.bug_id}</td>
         <td>{props.data.project}</td>
         <td>{props.data.severity}</td>
-        <td>{props.data.urgent ? "Yes" : "No"}</td>
+        {!isMobile ? <td>{props.data.urgent ? "Yes" : "No"}</td> : ""}
         <td>{props.data.name}</td>
-        <td>{props.data.added_by}</td>
-        <td>{props.data.version}</td>
+        {!isMobile ? <td>{props.data.added_by}</td> : ""}
+        {!isMobile ? <td>{props.data.version}</td> : ""}
         <td>{props.data.date}</td>
       </tr>
       {isOpen && (
         <tr>
-          <td colSpan="9" className="table-expanded-row">
+          <td colSpan={collumnSpan} className="table-expanded-row">
             <div className="table-expanded-row-content">
               <div className="content-left-column">
                 <small className="bug-form-title">_id: {props.data._id}</small>
@@ -251,7 +271,7 @@ function TableRow(props) {
                 <textarea
                   disabled={props.data.solved || !props.connectedUser.is_admin}
                   onChange={handleTextfieldChange}
-                  spellcheck="false"
+                  spellCheck="false"
                   id={"errorstack-textarea-" + props.data.bug_id}
                   type="text"
                   onClick={(e) => e.stopPropagation()}
@@ -266,7 +286,7 @@ function TableRow(props) {
                 <textarea
                   disabled={props.data.solved}
                   onChange={handleBugSolutionChange}
-                  spellcheck="true"
+                  spellCheck="true"
                   id={"solution-textarea-" + props.data.bug_id}
                   type="text"
                   onClick={(e) => e.stopPropagation()}

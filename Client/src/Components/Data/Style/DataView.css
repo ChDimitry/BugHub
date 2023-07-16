@@ -444,4 +444,18 @@ button.searchbar-reset-button:hover {
     width: 100%;
     margin: 10px 0 0 0;
   }
+  button#randomize-button,
+  #add-new-bug-button {
+    height: 50px;
+    width: fill;
+    margin-bottom: 10px;  
+  }
+
+  button#collapse-all-button,
+  #expand-all-button,
+  #sort-table-button {
+    height: 50px;
+    margin-bottom: 10px;
+    background-color: transparent;
+  }
 }

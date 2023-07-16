@@ -4,6 +4,15 @@ import DataTable from "./Parts/Table/DataTable";
 import "./Style/DataView.css";
 
 function DataView(props) {
+  // Filter bug list by user's projects
+  const [databaseBugList, setDatabaseBugList] = useState(
+    props.database_bugList.filter((bug) =>
+      props.connectedUser.projects_list.some(
+        (project) => project.project_name === bug.project
+      )
+    )
+  );
+
   const [resetDropDown, setResetDropDown] = useState(false);
   const [searchValues, setSearchValues] = useState({
     inputTextValue: "",
@@ -87,7 +96,7 @@ function DataView(props) {
         </button>
       </div>
       <DataTable
-        database_bugList={props.database_bugList}
+        database_bugList={databaseBugList}
         searchQuery={[
           searchValues.dropDownSeverityValue,
           searchValues.dropDownUrgentValue,
@@ -103,11 +112,9 @@ function DataView(props) {
           : searchValues.dropDownUrgentValue === "Yes"
           ? "Urgent"
           : "Non Urgent"}{" "}
-
         {searchValues.dropDownSeverityValue === "Severity"
           ? ""
           : searchValues.dropDownSeverityValue + " Severity"}
-
         {searchValues.dropDownSeverityValue === "Severity" &&
         searchValues.dropDownUrgentValue === "Urgent"
           ? searchValues.inputTextValue !== ""
@@ -115,7 +122,6 @@ function DataView(props) {
             : " bug ID"
           : " bugs"}
       </small>
-      
     </>
   );
 }

@@ -168,7 +168,6 @@ function DataTable(props) {
     setDatabaseBugList(sortedList);
   }
 
-
   // Handle mobile view
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
@@ -229,14 +228,14 @@ function DataTable(props) {
         <table>
           <thead>
             <tr>
-              <th className="icon"></th>
+              {!isMobile ? <th className="icon"></th> : ""}
               <th className="id">ID</th>
               <th className="project">Project</th>
               <th className="severity">Severity</th>
-              <th className="urgent">Urgent</th>
+              {!isMobile ? <th className="urgent">Urgent</th> : ""}
               <th className="bugname">Bug Name</th>
-              <th className="added-by">Added By</th>
-              <th className="version">Version</th>
+              {!isMobile ? <th className="added-by">Added By</th> : ""}
+              {!isMobile ? <th className="version">Version</th> : ""}
               <th className="date">Date</th>
             </tr>
           </thead>

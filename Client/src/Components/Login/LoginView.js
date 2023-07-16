@@ -27,19 +27,19 @@ function LoginView(props) {
 
   // Update state when input values change
   const handleUsernameChange = (e) => {
-    // if (!usernameRegex.test(e.target.value)) {
-    //   document.getElementById("username").style.outline = "2px solid red";
-    // } else {
-    //   document.getElementById("username").style.outline = "1px solid #00ffaa";
-    // }
+    if (!usernameRegex.test(e.target.value)) {
+      document.getElementById("username").style.outline = "2px solid red";
+    } else {
+      document.getElementById("username").style.outline = "1px solid #00ffaa";
+    }
     setUsername(e.target.value);
   };
   const handlePasswordChange = (e) => {
-    // if (!passwordRegex.test(e.target.value)) {
-    //   document.getElementById("password").style.outline = "2px solid red";
-    // } else {
-    //   document.getElementById("password").style.outline = "1px solid #00ffaa";
-    // }
+    if (!passwordRegex.test(e.target.value)) {
+      document.getElementById("password").style.outline = "2px solid red";
+    } else {
+      document.getElementById("password").style.outline = "1px solid #00ffaa";
+    }
     setPassword(e.target.value);
   };
 
@@ -89,8 +89,6 @@ function LoginView(props) {
             <button onClick={handleFormSubmit} className="table-menu-button">
               Login
             </button>
-
-            <button className="table-menu-button">Register</button>
           </div>
         </div>
         {/* Validation Rules */}

@@ -29,7 +29,7 @@ function App() {
       .catch((error) => console.error(error));
   }, []);
 
-  // Mock data
+  // // Mock data
   // const bugs = [
   //   {
   //     _id: "6449590924fdad8cefe6fd4d",
@@ -422,7 +422,7 @@ function App() {
   //     _id: "9834789502fdad8cefe6fe5e",
   //     user_id: 1,
   //     username: "Dima",
-  //     password: "1234",
+  //     password: "Braude1234!",
   //     first_name: "Dima",
   //     last_name: "Chudnovsky",
   //     is_connected: false,
@@ -454,7 +454,7 @@ function App() {
   //     _id: "9834789502fdad8cefe6fe53",
   //     user_id: 2,
   //     username: "Omer",
-  //     password: "1234",
+  //     password: "Braude1234!",
   //     first_name: "Omer",
   //     last_name: "Sommerstein",
   //     is_connected: false,
@@ -486,7 +486,7 @@ function App() {
   //     _id: "9834789502fdad8cefe6fe51",
   //     user_id: 2,
   //     username: "User",
-  //     password: "1234",
+  //     password: "Braude1234!",
   //     first_name: "John",
   //     last_name: "Doe",
   //     is_connected: false,
@@ -542,6 +542,7 @@ function App() {
       window.removeEventListener("resize", handleResize); // Clean up event listener on component unmount
     };
   }, []);
+
 
   return (
     <div className="App">

@@ -8,7 +8,18 @@ function UserView(props) {
     props.connectedUser.projects_list
   );
 
-  
+  // Handle mobile view
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // Adjust the breakpoint to fit your mobile screen size
+    };
+    handleResize(); // Call the function on initial render
+    window.addEventListener("resize", handleResize); // Add event listener for window resize
+    return () => {
+      window.removeEventListener("resize", handleResize); // Clean up event listener on component unmount
+    };
+  }, []);
 
   return (
     <>
@@ -19,7 +30,7 @@ function UserView(props) {
               <th>Your Porjects</th>
               <th>Team</th>
               <th>Created By</th>
-              <th>Description</th>
+              {!isMobile ? <th>Description</th> : ""}
               <th># of Bugs</th>
             </tr>
           </thead>
@@ -29,7 +40,8 @@ function UserView(props) {
                 <td>{project.project_name}</td>
                 <td>{Object.values(project.projects_team[0]).join(", ")}</td>
                 <td>{project.created_by}</td>
-                <td>{project.description}</td>
+                {!isMobile ? <td>{project.description}</td> : ""}
+
                 <td>{project.num_of_bugs}</td>
               </tr>
             ))}
