@@ -31,7 +31,6 @@ function UserView(props) {
               <th>Team</th>
               <th>Created By</th>
               {!isMobile ? <th>Description</th> : ""}
-              <th># of Bugs</th>
             </tr>
           </thead>
           <tbody>
@@ -41,8 +40,6 @@ function UserView(props) {
                 <td>{Object.values(project.projects_team[0]).join(", ")}</td>
                 <td>{project.created_by}</td>
                 {!isMobile ? <td>{project.description}</td> : ""}
-
-                <td>{project.num_of_bugs}</td>
               </tr>
             ))}
           </tbody>
